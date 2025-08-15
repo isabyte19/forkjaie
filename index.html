@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home - HAPPY BIRTHDAY KATIE</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- link the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- link the webpage's JavaScript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <main>
+  <body>
+    <!-- Bunny container for falling animation -->
+    <div id="bunny-container"></div>
+
+    <header>
+      <h1 id="titleText">happy birthday katie!!</h1>
+    </header>
+    <img id="main-image" src="images/us.jpeg" alt="Shape of a heart."> 
+    <p> 
+      <span id="text">hehe :p </span>
+    </p> 
+
+    <nav>
+      <ul>
+        <li>
+          <a href="boop.html" class="heart-link">
+            <span>click me!</span>
+          </a>
+        </li>
+        <li>
+          <a href="hehe.html" class="heart-link">
+            <span><3</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Falling bunnies script -->
+    <script>
+      function createBunny() {
+        const bunny = document.createElement("div");
+
+        // Always use your bunny image
+        bunny.classList.add("bunny");
+
+        // Random horizontal position
+        bunny.style.left = Math.random() * 100 + "vw";
+
+        // Random animation duration (3-8 seconds)
+        bunny.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+        // Random opacity
+        bunny.style.opacity = 0.7 + Math.random() * 0.3;
+
+        // Random size variation
+        const scale = 0.8 + Math.random() * 0.6;
+        bunny.style.transform = `scale(${scale})`;
+
+        document.getElementById("bunny-container").appendChild(bunny);
+
+        // Remove bunny after animation completes
+        setTimeout(() => {
+          if (bunny.parentNode) {
+            bunny.remove();
+          }
+        }, 8000);
+      }
+
+      // Start continuous bunny rain automatically
+      setInterval(createBunny, 500);
+    </script>
+
+    <script src="script.js"></script> 
+  </body>
+  </main>
+</html>
